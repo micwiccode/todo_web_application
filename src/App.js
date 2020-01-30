@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import { Header } from './components/Header';
+import { List } from './components/List';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    tasks: [
+      {
+        id: 1,
+        isDone: true,
+        name: 'Shopping',
+      },
+      {
+        id: 2,
+        isDone: false,
+        name: 'Cinema',
+      },
+    ],
+  };
+
+  makeTaskDone = id => {
+    this.setState({
+      tasks: this.state.tasks.map(task => {
+        if (task.id === id) task.isDone = !task.isDone;
+        return task;
+      }),
+    });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <List tasks={this.state.tasks} makeTaskDone={this.makeTaskDone} />
+      </div>
+    );
+  }
 }
 
 export default App;

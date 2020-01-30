@@ -1,0 +1,53 @@
+.list_item {
+  display: flex;
+  padding: 0 20px;
+  padding-bottom: 5px;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  margin-bottom: 5%;
+  color: black;
+  background-color: white;
+  cursor: pointer;
+}
+
+.list_item__name{
+  display: flex;
+  align-items: center;
+}
+
+.list_item__name__text {
+  margin-left: 10px;
+}
+
+.list_item__name__checkbox {
+  margin-top: 6px;
+}
+
+.list_item__name__checkbox:before {
+}
+
+.list_item__buttons__delete {
+  background-color: transparent;
+  opacity: 0;
+  border: none;
+  padding: 5px 0;
+  transition: opacity .4s ease-in-out;
+  cursor: pointer;
+}
+
+.list_item:hover .list_item__buttons *{
+  opacity: 1;
+}
+
+.list_item__buttons__delete:before{
+   content: 'x';
+   color: #302774;
+   font-weight: 800;
+   font-size: 1.5em;
+   font-family: Arial, sans-serif;
+ }
+
+.list_item__buttons__delete:focus{
+  outline: none;
+}
