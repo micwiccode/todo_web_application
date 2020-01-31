@@ -45,7 +45,7 @@
    color: #302774;
    font-weight: 800;
    font-size: 1.5em;
-   font-family: Arial, sans-serif;
+   z-index: 100;
  }
 
 .list_item__buttons__delete:focus{

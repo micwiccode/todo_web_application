@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 import './App.css';
 import { Header } from './components/Header';
 import { List } from './components/List';
+import uuid from 'uuid';
 
 class App extends Component {
   state = {
     tasks: [
       {
-        id: 1,
-        isDone: true,
+        id: uuid(),
+        isDone: false,
         name: 'Shopping',
       },
       {
-        id: 2,
+        id: uuid(),
         isDone: false,
         name: 'Cinema',
       },
@@ -28,11 +29,29 @@ class App extends Component {
     });
   };
 
+  addTask = taskName => {
+    const newTask = { id: uuid(), isDone: false, name: taskName };
+    this.setState({
+      tasks: [...this.state.tasks, newTask]
+    });
+  };
+
+  deleteTask = id => {
+    this.setState({
+      tasks: [...this.state.tasks.filter(task => task.id !== id)],
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <Header />
-        <List tasks={this.state.tasks} makeTaskDone={this.makeTaskDone} />
+        <List
+          tasks={this.state.tasks}
+          makeTaskDone={this.makeTaskDone}
+          deleteTask={this.deleteTask}
+          addTask={this.addTask}
+        />
       </div>
     );
   }

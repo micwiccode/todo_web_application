@@ -7,13 +7,18 @@ export class ListItem extends Component {
       ? {
           backgroundColor: '#7465ff',
           color: '#fff',
-          textDecoration: 'line-through'
+          textDecoration: 'line-through',
         }
       : {
           backgroundColor: '#fff',
           color: '#000',
-          textDecoration: 'none'
+          textDecoration: 'none',
         };
+  };
+
+  deleteTask = (e,id) => {
+    e.stopPropagation();
+    this.props.deleteTask(id);
   };
 
   render() {
@@ -25,11 +30,18 @@ export class ListItem extends Component {
         onClick={() => this.props.makeTaskDone(id)}
       >
         <div className="list_item__name">
-          <input type="checkbox" className="list_item__name__checkbox" checked={isDone}/>
+          <input
+            type="checkbox"
+            className="list_item__name__checkbox"
+            checked={isDone}
+          />
           <label className="list_item__name__text">{name}</label>
         </div>
         <div className="list_item__buttons">
-          <button className="list_item__buttons__delete"></button>
+          <button
+            className="list_item__buttons__delete"
+            onClick={(e) => this.deleteTask(e,id)}
+          />
         </div>
       </div>
     );
