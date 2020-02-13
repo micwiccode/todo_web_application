@@ -4,8 +4,11 @@
   "description": "Basic MERN to-do app (MongoDB, Express, React, Node)",
   "main": "server.js",
   "scripts": {
+    "install-client": "cd client && npm install",
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Michał Wiczk",
   "license": "MIT",

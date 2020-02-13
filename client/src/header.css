@@ -1,0 +1,12 @@
+.header{
+  width: 100%;
+  text-align: center;
+  margin: 5% 0 8% 0;
+}
+.header__title{
+  font-weight: bold;
+}
+
+.header__subtitle{
+  font-style: oblique;
+}

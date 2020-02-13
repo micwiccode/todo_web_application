@@ -2,11 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfc77238-7134-40ae-838c-f53f3f8982a2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/models/Task.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/tasks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/actions/types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/header.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/icon_tick.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/reducers/indexReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/reducers/taskReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/AddTask.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/addTask.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/taskActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/AddTask.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AddTask.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/List.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/List.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ListItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/listItem.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/listItem.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/reducers.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Task.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Task.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/tasks.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +40,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -57,7 +73,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.15.1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/src" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.NodeInterpreter" value="project" />
@@ -68,11 +84,15 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Pliki programów\Dokumenty\CCamp\HTML-first steps\todo_web_application\client\src" />
+      <recent name="D:\Pliki programów\Dokumenty\CCamp\HTML-first steps\todo_web_application\client\src\actions" />
       <recent name="D:\Pliki programów\Dokumenty\CCamp\HTML-first steps\todo_web_application\routes" />
       <recent name="D:\Pliki programów\Dokumenty\CCamp\HTML-first steps\todo_web_application" />
       <recent name="D:\Pliki programów\Dokumenty\CCamp\HTML-first steps\todo_web_application\client" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Pliki programów\Dokumenty\CCamp\HTML-first steps\todo_web_application\client\src" />
+      <recent name="D:\Pliki programów\Dokumenty\CCamp\HTML-first steps\todo_web_application\client\src\reducers" />
       <recent name="D:\Pliki programów\Dokumenty\CCamp\HTML-first steps\todo_web_application" />
     </key>
   </component>
@@ -93,7 +113,12 @@
       <workItem from="1580426006259" duration="4051000" />
       <workItem from="1581006805386" duration="7283000" />
       <workItem from="1581090056662" duration="4421000" />
-      <workItem from="1581116169724" duration="1927000" />
+      <workItem from="1581116169724" duration="2595000" />
+      <workItem from="1581201611794" duration="2648000" />
+      <workItem from="1581339833140" duration="4653000" />
+      <workItem from="1581370679582" duration="5699000" />
+      <workItem from="1581435699920" duration="13988000" />
+      <workItem from="1581629940656" duration="5584000" />
     </task>
     <servers />
   </component>
@@ -131,16 +156,20 @@
     </state>
     <state x="2396" y="184" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1580401503058" />
     <state x="381" y="114" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1581096197299" />
-    <state x="509" y="290" key="com.intellij.ide.util.TipDialog" timestamp="1581116191834">
+    <state x="509" y="290" key="com.intellij.ide.util.TipDialog" timestamp="1581629947152">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="2556" y="366" key="com.intellij.ide.util.TipDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1580426006074" />
-    <state x="509" y="290" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1581116191834" />
+    <state x="509" y="290" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1581629947152" />
     <state x="525" y="102" width="594" height="652" key="find.popup" timestamp="1581011740836">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="2576" y="129" width="611" height="822" key="find.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1580400516312" />
     <state x="525" y="102" width="594" height="652" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1581011740836" />
+    <state width="600" height="440" key="javadoc.popup" timestamp="1581452981999">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="600" height="440" key="javadoc.popup/0.0.1536.824@0.0.1536.824" timestamp="1581452981999" />
     <state x="2544" y="254" key="run.anything.popup" timestamp="1580392459740">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

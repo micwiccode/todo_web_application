@@ -21,11 +21,38 @@ router.post('/', (req, res) => {
     .catch(err => console.log(err));
 });
 
+//@route PUT /tasks/id
+router.put('/:id', (req, res) => {
+  const isTaskDone = Task.findById(req.params.id)
+    .then(task =>
+      task.update({ isDone: !task.isDone }).then(() =>
+        res.json({
+          message: `Task with id ${req.params.id} was updated successfully`,
+        })
+      )
+    )
+    .catch(err =>
+      res
+        .status(404)
+        .json({ message: `Task with id ${req.params.id} can not be updated` })
+    );
+});
+
 //@route DELETE /tasks/id
 router.delete('/:id', (req, res) => {
-  Task.deleteOne({ _id: req.params.id })
-    .then(() => res.json({message: `Task with id ${req.params.id} was deleted successfully`}))
-    .catch(err => res.status(404).json({message: `Task with id ${req.params.id} can not be deleted`}));
+  Task.findById(req.params.id)
+    .then(item =>
+      item.remove().then(() =>
+        res.json({
+          message: `Task with id ${req.params.id} was deleted successfully`,
+        })
+      )
+    )
+    .catch(err =>
+      res
+        .status(404)
+        .json({ message: `Task with id ${req.params.id} can not be deleted` })
+    );
 });
 
 module.exports = router;

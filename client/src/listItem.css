@@ -1,7 +1,6 @@
 .list_item {
   display: flex;
-  padding: 0 20px;
-  padding-bottom: 5px;
+  padding: 0 20px 5px;
   align-items: center;
   justify-content: space-between;
   border-radius: 10px;
@@ -21,10 +20,7 @@
 }
 
 .list_item__name__checkbox {
-  margin-top: 6px;
-}
 
-.list_item__name__checkbox:before {
 }
 
 .list_item__buttons__delete {

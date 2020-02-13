@@ -9,6 +9,10 @@ const TaskSchema = new Schema({
   date: {
     type: Date,
     default: Date.now(),
+  },
+  isDone:{
+    type: Boolean,
+    default: false
   }
 });
 
