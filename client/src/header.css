@@ -1,8 +1,14 @@
 .header{
   width: 100%;
   text-align: center;
-  margin: 5% 0 8% 0;
+  margin: 3% 0 4% 0;
 }
+
+.header__icon{
+  width: 5%;
+  height: 8%;
+}
+
 .header__title{
   font-weight: bold;
 }

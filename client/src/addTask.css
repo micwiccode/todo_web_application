@@ -1,5 +1,5 @@
 .add_task{
-  margin-bottom: 6%;
+  margin-bottom: 2%;
 }
 
 .add_task__form{
@@ -12,7 +12,6 @@
   background-color: white;
   margin: 0;
 }
-
 
 .add_task__form:focus-within{
   border-color: deepskyblue;

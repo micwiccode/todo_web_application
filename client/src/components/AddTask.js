@@ -10,9 +10,11 @@ export class AddTask extends Component {
     this.onSubmitTaskName = this.onSubmitTaskName.bind(this);
   }
 
-  onTaskNameChange = event => this.setState({ name: event.target.value });
+  onTaskNameChange(event) {
+    this.setState({ name: event.target.value });
+  }
 
-  onSubmitTaskName = event => {
+  onSubmitTaskName(event) {
     event.preventDefault();
     if (this.state.name !== '') {
       const newTask = {
@@ -23,7 +25,7 @@ export class AddTask extends Component {
     } else {
       this.setState({ error: true });
     }
-  };
+  }
 
   render() {
     const error = this.state.error

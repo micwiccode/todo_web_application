@@ -23,15 +23,15 @@ class List extends Component {
     this.props.getTasks();
   }
 
-  makeTaskDone = id => {
+  makeTaskDone(id){
     this.props.toggleTask(id);
   };
 
-  addTask = newTask => {
+  addTask(newTask){
     this.props.addTask(newTask);
   };
 
-  deleteTask = id => {
+  deleteTask(id){
     this.props.deleteTask(id);
   };
 

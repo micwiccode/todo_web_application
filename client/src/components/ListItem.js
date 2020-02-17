@@ -6,11 +6,15 @@ const tick_icon = require('../icon_tick.png');
 export class ListItem extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      fade: false,
+    };
     this.getItemStateStyle = this.getItemStateStyle.bind(this);
     this.deleteTask = this.deleteTask.bind(this);
+    this.setTaskStatus = this.setTaskStatus.bind(this);
   }
 
-  getItemStateStyle = () => {
+  getItemStateStyle() {
     return this.props.task.isDone
       ? {
           backgroundColor: '#7465ff',
@@ -22,20 +26,27 @@ export class ListItem extends Component {
           color: '#000',
           textDecoration: 'none',
         };
-  };
+  }
 
-  deleteTask = (event, id) => {
+  deleteTask(event, id) {
     event.stopPropagation();
     this.props.deleteTask(id);
-  };
+  }
+
+  setTaskStatus(id) {
+    this.props.makeTaskDone(id);
+    this.setState({ fade: true });
+  }
 
   render() {
     const { _id, isDone, name } = this.props.task;
+    const { fade } = this.state;
     return (
       <div
-        className="list_item"
+        onClick={() => this.setTaskStatus(_id)}
+        onAnimationEnd={() => this.setState({ fade: false })}
+        className={fade ? 'list_item flip flip-not' : 'list_item'}
         style={this.getItemStateStyle()}
-        onClick={() => this.props.makeTaskDone(_id)}
       >
         <div className="list_item__name">
           <img

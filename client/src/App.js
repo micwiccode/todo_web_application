@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Header } from './components/Header';
 import List from './components/List';
+import {Footer} from './components/Footer';
 import { Provider } from 'react-redux';
 import store from './store';
 
@@ -12,6 +13,7 @@ class App extends Component {
         <div className="App">
           <Header />
           <List/>
+          <Footer/>
         </div>
       </Provider>
     );
