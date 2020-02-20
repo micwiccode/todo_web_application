@@ -11,7 +11,7 @@ export function getTasks() {
   return dispatch => {
     dispatch(fetchTasks());
     axios
-      .get('/tasks')
+      .get('/api/tasks')
       .then(res => dispatch({ type: GET_TASKS, payload: res.data }));
   };
 }
@@ -19,7 +19,7 @@ export function getTasks() {
 export function addTask(task) {
   return dispatch => {
     axios
-      .post('/tasks', task)
+      .post('/api/tasks', task)
       .then(res => dispatch({ type: ADD_TASK, payload: res.data }));
   };
 }
@@ -27,7 +27,7 @@ export function addTask(task) {
 export function toggleTask(id) {
   return dispatch => {
     axios
-      .put(`/tasks/${id}`)
+      .put(`/api/tasks/${id}`)
       .then(res => dispatch({ type: TOGGLE_TASK, payload: id }));
   };
 }
@@ -35,7 +35,7 @@ export function toggleTask(id) {
 export function deleteTask(id) {
   return dispatch => {
     axios
-      .delete(`/tasks/${id}`)
+      .delete(`/api/tasks/${id}`)
       .then(res => dispatch({ type: DELETE_TASK, payload: id }));
   };
 }

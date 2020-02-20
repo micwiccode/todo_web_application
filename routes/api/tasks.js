@@ -1,5 +1,6 @@
 const express = require('express');
-const Task = require('../models/Task');
+const Task = require('../../models/Task');
+const auth = require('../../middleware/auth');
 
 const router = express.Router();
 
@@ -11,7 +12,7 @@ router.get('/', (req, res) => {
 });
 
 //@route POST /tasks
-router.post('/', (req, res) => {
+router.post('/', auth, (req, res) => {
   const newTask = new Task({
     name: req.body.name,
   });
@@ -22,7 +23,7 @@ router.post('/', (req, res) => {
 });
 
 //@route PUT /tasks/id
-router.put('/:id', (req, res) => {
+router.put('/:id', auth, (req, res) => {
   const isTaskDone = Task.findById(req.params.id)
     .then(task =>
       task.update({ isDone: !task.isDone }).then(() =>
@@ -39,7 +40,7 @@ router.put('/:id', (req, res) => {
 });
 
 //@route DELETE /tasks/id
-router.delete('/:id', (req, res) => {
+router.delete('/:id', auth, (req, res) => {
   Task.findById(req.params.id)
     .then(item =>
       item.remove().then(() =>

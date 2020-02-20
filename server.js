@@ -1,19 +1,27 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const database = require('./config/key.js').mongoURI;
-const tasks = require('./routes/tasks');
+const config = require('config');
+const tasks = require('./routes/api/tasks');
+const users = require('./routes/api/users');
+const login = require('./routes/api/login');
 
 const app = express();
 
 const port = process.env.PORT || 5000;
+const database = config.get('mongoURI');
 
 mongoose
-  .connect(database, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(database, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  })
   .then(() => console.log('Database connected'))
   .catch(err => console.log(err));
 
-app.use(bodyParser.json());
-app.use('/tasks', tasks);
+app.use(express.json());
+app.use('/api/tasks', tasks);
+app.use('/api/users', users);
+app.use('/api/login', login);
 
 app.listen(port, () => console.log(`App listening on port ${port}!`));

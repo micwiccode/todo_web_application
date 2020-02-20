@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import '../listItem.css';
+import '../css/listItem.css';
 import PropTypes from 'prop-types';
-const tick_icon = require('../icon_tick.png');
+const tick_icon = require('../img/icon_tick.png');
 
 export class ListItem extends Component {
   constructor(props) {

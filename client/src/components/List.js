@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ListItem } from './ListItem';
-import '../list.css';
+import '../css/list.css';
 import { AddTask } from './AddTask';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';

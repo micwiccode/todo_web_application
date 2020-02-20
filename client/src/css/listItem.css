@@ -13,12 +13,12 @@
 }
 
 .flip {
-  animation: fade_in 1.2s;
+  animation: fade_in .8s;
 }
 
 @keyframes fade_in {
   0% {opacity: 1}
-  50% {opacity: 0; transform: rotateX(180deg);}
+  50% {opacity: 0; transform: rotateX(90deg);}
   100% {opacity: 1; transform: rotateX(0deg);}
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import '../header.css';
-const icon = require('../icon.png');
+import '../css/header.css';
+const icon = require('../img/icon.png');
 
 export function Header() {
   return (
