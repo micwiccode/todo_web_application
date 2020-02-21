@@ -1,0 +1,28 @@
+.form{
+  width: 40%;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.form__input{
+  padding: 15px 15px;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 5%;
+
+}
+
+.form__btn {
+  background-color: rgba(48,39,116,1);
+  border: none;
+  color: white;
+  font-weight: bolder;
+  font-size: 1.05em;
+  cursor: pointer;
+  transition: background-color .5s ease-in-out;
+}
+
+.form__btn:hover{
+  background-color: rgb(116, 101, 255);
+}

@@ -4,15 +4,40 @@
   padding-top: 3%;
 }
 
-.header__icon{
-  width: 5%;
-  height: 8%;
+.header__box__icon{
+  width: 100px;
+  height: 100px;
 }
 
-.header__title{
+.header__box__title{
   font-weight: bold;
 }
 
-.header__subtitle{
+.header__box__subtitle{
   font-style: oblique;
+}
+
+.header__nav{
+  position: fixed;
+  top: 5%;
+  right: 5%;
+}
+
+.header__nav__btn{
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 10px;
+  color: white;
+  transition: border-bottom-color .5s ease-in-out;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  font-size: 1.1em;
+  font-weight: lighter;
+}
+
+.header__nav__btn:hover{
+  border-bottom: 2px solid white;
 }
