@@ -1,6 +1,12 @@
 .list{
-    width: 40%;
+    width: 35%;
     margin: 30px auto;
+}
+
+@media only screen and (max-width:1300px){
+    .list{
+        width: 50%;
+    }
 }
 
 @media only screen and (max-width:1000px){

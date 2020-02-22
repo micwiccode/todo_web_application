@@ -1,5 +1,5 @@
 .header{
-  width: 100%;
+  margin: 0 auto;
   text-align: center;
   padding-top: 3%;
 }
@@ -36,6 +36,11 @@
   sans-serif;
   font-size: 1.1em;
   font-weight: lighter;
+  margin-left: 40px;
+}
+
+.header__nav__btn:focus{
+  outline: none;
 }
 
 .header__nav__btn:hover{

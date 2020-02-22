@@ -11,7 +11,7 @@ const router = express.Router();
 router.post('/', (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
-    return res.status(404).json({ msg: 'No email or name or password given' });
+    return res.status(400).json({ msg: 'No email or name or password given' });
   } else {
     User.findOne({ email }).then(user => {
       if (!user) {

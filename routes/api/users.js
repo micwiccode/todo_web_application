@@ -8,9 +8,16 @@ const router = express.Router();
 
 //@route POST /users
 router.post('/', (req, res) => {
-  const { name, email, password } = req.body;
-  if (!name || !email || !password) {
+  const emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  const { name, email, password, repeatPassword } = req.body;
+  if (!name || !email || !password || !repeatPassword) {
     res.status(404).json({ msg: 'No email or name or password given' });
+  } else if (password !== repeatPassword) {
+    return res.status(400).json({ msg: 'Passwords are not the same' });
+  } else if (password.length < 6) {
+    return res.status(400).json({ msg: 'Passwords should have min 6 characters' });
+  } else if(!email.match(emailFormat)) {
+    return res.status(400).json({ msg: 'Email is incorrect' });
   } else {
     User.findOne({ email }).then(user => {
       if (user) {

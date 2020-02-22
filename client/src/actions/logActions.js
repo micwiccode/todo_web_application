@@ -28,7 +28,6 @@ export function loadUser() {
 
 export function logIn() {
   return (dispatch, getState) => {
-
     axios
       .get('/api/login/user')
       .then(res => dispatch({ type: GET_TASKS, payload: res.data }));
@@ -37,19 +36,27 @@ export function logIn() {
 
 export function logOut() {
   return dispatch => {
-
     axios
       .get('/api/tasks')
       .then(res => dispatch({ type: GET_TASKS, payload: res.data }));
   };
 }
 
-export function registerUser() {
+export function registerUser({ name, email, password, repeatPassword }) {
   return dispatch => {
-    
+    const config = {
+      headers: {
+        'Content-type': 'application/json',
+      },
+    };
+    const body = JSON.stringify({ name, email, password, repeatPassword });
     axios
-      .get('/api/tasks')
-      .then(res => dispatch({ type: GET_TASKS, payload: res.data }));
+      .post('/api/users', body, config)
+      .then(res => dispatch({ type: REGISTER_SUCCESS, payload: res.data }))
+      .catch(err => {
+        dispatch(getError(err.response.data.msg, err.response.status, REGISTER_FAIL));
+        dispatch(registrationFail());
+      });
   };
 }
 export function loadingUser() {
@@ -60,8 +67,12 @@ export function authFail() {
   return { type: AUTH_FAIL };
 }
 
+export function registrationFail() {
+  return { type: REGISTER_FAIL };
+}
+
 export function tokenConfig(getState) {
-  const {token} = getState().logRoot;
+  const { token } = getState().logRoot;
   const config = {
     headers: {
       'Content-type': 'application/json',

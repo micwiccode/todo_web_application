@@ -1,5 +1,5 @@
 .form{
-  width: 40%;
+  width: 35%;
   margin: 30px auto;
   display: flex;
   flex-direction: column;
@@ -25,4 +25,39 @@
 
 .form__btn:hover{
   background-color: rgb(116, 101, 255);
+}
+
+#caution{
+  display: flex;
+  align-items: flex-start;
+  margin: 10px 0;
+}
+
+#caution img {
+  width: 24px;
+  height: 24px;
+  margin-right: 20px;
+}
+
+#caution p {
+  padding: 0;
+  margin: 0;
+}
+
+@media only screen and (max-width:1300px){
+  .form{
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width:1000px){
+  .form{
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width:700px){
+  .form{
+    width: 80%;
+  }
 }
