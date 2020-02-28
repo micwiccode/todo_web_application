@@ -35,11 +35,7 @@ export function logIn() {
 }
 
 export function logOut() {
-  return dispatch => {
-    axios
-      .get('/api/tasks')
-      .then(res => dispatch({ type: GET_TASKS, payload: res.data }));
-  };
+  return { type: LOGOUT_SUCCESS };
 }
 
 export function registerUser({ name, email, password, repeatPassword }) {

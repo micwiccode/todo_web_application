@@ -20,34 +20,45 @@ class List extends Component {
   }
 
   componentDidMount() {
-    this.props.getTasks();
+    const user = {
+      userId: this.props.user._id
+    };
+    this.props.getTasks(user);
   }
 
-  makeTaskDone(id){
+  makeTaskDone(id) {
     this.props.toggleTask(id);
-  };
+  }
 
-  addTask(newTask){
+  addTask(name) {
+    const newTask = {
+      name: name,
+      userId: this.props.user._id,
+    };
     this.props.addTask(newTask);
-  };
+  }
 
-  deleteTask(id){
+  deleteTask(id) {
     this.props.deleteTask(id);
-  };
+  }
 
   render() {
     const { tasks } = this.props.task;
     return (
       <div className="list">
         <AddTask addTask={this.addTask} />
-        {tasks.map(task => (
-          <ListItem
-            key={task._id}
-            task={task}
-            makeTaskDone={this.makeTaskDone}
-            deleteTask={this.deleteTask}
-          />
-        ))}
+        {tasks.length === 0 ? (
+          <p>You didn't add any task yet</p>
+        ) : (
+          tasks.map(task => (
+            <ListItem
+              key={task._id}
+              task={task}
+              makeTaskDone={this.makeTaskDone}
+              deleteTask={this.deleteTask}
+            />
+          ))
+        )}
       </div>
     );
   }
@@ -62,7 +73,8 @@ List.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  task: state.tasksRoot
+  task: state.tasksRoot,
+  user: state.logRoot.user,
 });
 
 export default connect(mapStateToProps, {

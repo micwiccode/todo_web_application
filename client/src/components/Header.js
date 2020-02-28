@@ -3,9 +3,10 @@ import '../css/header.css';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { logOut } from '../actions/logActions';
 const icon = require('../img/icon.png');
 
-function Header({ isAuth }) {
+const Header = ({ isAuth, user, logOut }) => {
   return (
     <div className="header">
       <div className="header__box">
@@ -19,9 +20,16 @@ function Header({ isAuth }) {
       </div>
       <nav className="header__nav">
         {isAuth ? (
-          <Link to="/">
-            <button className="header__nav__btn">Log out</button>
-          </Link>
+          <>
+            <Link to="/">
+              <button className="header__nav__btn">Hello {user.name}</button>
+            </Link>
+            <Link to="/">
+              <button className="header__nav__btn" onClick={logOut}>
+                Log out
+              </button>
+            </Link>
+          </>
         ) : (
           <>
             <Link to="/signup">
@@ -38,11 +46,14 @@ function Header({ isAuth }) {
 }
 
 Header.propsTypes = {
+  logOut: PropTypes.func.isRequired,
   isAuth: PropTypes.bool,
+  name: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
   isAuth: state.logRoot.isAuth,
+  user: state.logRoot.user,
 });
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, { logOut })(Header);

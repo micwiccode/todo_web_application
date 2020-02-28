@@ -3,6 +3,13 @@
   margin: 30px auto;
   display: flex;
   flex-direction: column;
+  text-align: center;
+}
+
+.form__info{
+  color: #59d9da;
+  text-transform : uppercase;
+  letter-spacing: 2px;
 }
 
 .form__input{
@@ -10,11 +17,12 @@
   border: none;
   border-radius: 10px;
   margin-bottom: 5%;
-
 }
 
 .form__btn {
-  background-color: rgba(48,39,116,1);
+  background-color: rgb(67, 57, 202);
+  padding: 20px;
+  margin: 20px;
   border: none;
   color: white;
   font-weight: bolder;

@@ -16,11 +16,9 @@ export class AddTask extends Component {
 
   onSubmitTaskName(event) {
     event.preventDefault();
-    if (this.state.name !== '') {
-      const newTask = {
-        name: this.state.name,
-      };
-      this.props.addTask(newTask);
+    const {name} = this.state;
+    if (name !== '') {
+      this.props.addTask(name);
       this.setState({ name: '', error: false });
     } else {
       this.setState({ error: true });

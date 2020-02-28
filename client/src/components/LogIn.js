@@ -73,7 +73,6 @@ class LogIn extends Component {
       password: event.target.value,
     });
   };
-
 }
 
 export default LogIn;

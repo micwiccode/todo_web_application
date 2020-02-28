@@ -4,8 +4,9 @@ import Header from './components/Header';
 import List from './components/List';
 import LogIn from './components/LogIn';
 import Footer from './components/Footer';
+import ViewNoLoggedIn from './components/ViewNoLoggedIn';
 import RegistrationForm from './components/RegistrationForm';
-import { Provider } from 'react-redux';
+import {connect, Provider} from 'react-redux';
 import store from './store';
 import { loadUser } from './actions/logActions';
 import {
@@ -22,13 +23,13 @@ class App extends Component {
 
   render() {
     return (
+
       <Router>
-        <Provider store={store}>
           <div className="App">
             <Header />
             <Switch>
               <Route exact path="/">
-                <List />
+                {this.props.isAuth ? <List /> : <ViewNoLoggedIn/>}
               </Route>
               <Route path="/signup">
                 <RegistrationForm />
@@ -39,10 +40,13 @@ class App extends Component {
             </Switch>
             <Footer />
           </div>
-        </Provider>
       </Router>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  isAuth: state.logRoot.isAuth,
+});
+
+export default connect(mapStateToProps)(App);

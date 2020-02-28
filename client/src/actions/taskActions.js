@@ -7,11 +7,11 @@ import {
   FETCH_TASKS,
 } from '../actions/types';
 
-export function getTasks() {
+export function getTasks(user) {
   return dispatch => {
     dispatch(fetchTasks());
     axios
-      .get('/api/tasks')
+      .get('/api/tasks', user)
       .then(res => dispatch({ type: GET_TASKS, payload: res.data }));
   };
 }

@@ -13,6 +13,10 @@ const TaskSchema = new Schema({
   isDone:{
     type: Boolean,
     default: false
+  },
+  userId:{
+    type: String,
+    isRequired: true
   }
 });
 
