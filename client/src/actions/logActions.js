@@ -26,11 +26,25 @@ export function loadUser() {
   };
 }
 
-export function logIn() {
-  return (dispatch, getState) => {
+export function logIn({ email, password }) {
+  return dispatch => {
+    const config = {
+      headers: {
+        'Content-type': 'application/json',
+      },
+    };
+    const body = JSON.stringify({ email, password });
     axios
-      .get('/api/login/user')
-      .then(res => dispatch({ type: GET_TASKS, payload: res.data }));
+      .post('/api/login', body, config)
+      .then(res => {
+        dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+      })
+      .catch(err => {
+        dispatch(
+          getError(err.response.data.msg, err.response.status, LOGIN_FAIL)
+        );
+        dispatch(LogInFail());
+      });
   };
 }
 
@@ -47,10 +61,12 @@ export function registerUser({ name, email, password, repeatPassword }) {
     };
     const body = JSON.stringify({ name, email, password, repeatPassword });
     axios
-      .post('/api/users', body, config)
+      .post('/api/register', body, config)
       .then(res => dispatch({ type: REGISTER_SUCCESS, payload: res.data }))
       .catch(err => {
-        dispatch(getError(err.response.data.msg, err.response.status, REGISTER_FAIL));
+        dispatch(
+          getError(err.response.data.msg, err.response.status, REGISTER_FAIL)
+        );
         dispatch(registrationFail());
       });
   };
@@ -65,6 +81,10 @@ export function authFail() {
 
 export function registrationFail() {
   return { type: REGISTER_FAIL };
+}
+
+export function LogInFail() {
+  return { type: LOGIN_FAIL };
 }
 
 export function tokenConfig(getState) {

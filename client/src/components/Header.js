@@ -43,7 +43,7 @@ const Header = ({ isAuth, user, logOut }) => {
       </nav>
     </div>
   );
-}
+};
 
 Header.propsTypes = {
   logOut: PropTypes.func.isRequired,

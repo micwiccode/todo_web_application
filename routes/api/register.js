@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 
 const router = express.Router();
 
-//@route POST /users
+//@route POST /register
 router.post('/', (req, res) => {
   const emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   const { name, email, password, repeatPassword } = req.body;
@@ -15,8 +15,10 @@ router.post('/', (req, res) => {
   } else if (password !== repeatPassword) {
     return res.status(400).json({ msg: 'Passwords are not the same' });
   } else if (password.length < 6) {
-    return res.status(400).json({ msg: 'Passwords should have min 6 characters' });
-  } else if(!email.match(emailFormat)) {
+    return res
+      .status(400)
+      .json({ msg: 'Passwords should have min 6 characters' });
+  } else if (!email.match(emailFormat)) {
     return res.status(400).json({ msg: 'Email is incorrect' });
   } else {
     User.findOne({ email }).then(user => {

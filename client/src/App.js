@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './css/App.css';
 import Header from './components/Header';
 import List from './components/List';
-import LogIn from './components/LogIn';
+import LogInForm from './components/LogInForm';
 import Footer from './components/Footer';
 import ViewNoLoggedIn from './components/ViewNoLoggedIn';
 import RegistrationForm from './components/RegistrationForm';
@@ -35,7 +35,7 @@ class App extends Component {
                 <RegistrationForm />
               </Route>
               <Route path="/login">
-                <LogIn />
+                <LogInForm />
               </Route>
             </Switch>
             <Footer />

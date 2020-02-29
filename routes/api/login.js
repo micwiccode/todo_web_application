@@ -51,10 +51,14 @@ router.post('/', (req, res) => {
 
 //Get user data
 //@route GET /login/user
-router.get('/user', auth, (req, res) => {
-  User.findById(req.user.id)
-    .select('name && email && dateOfRegistration')
-    .then(user => res.json(user));
-});
+router.get(
+  '/user',
+  /*auth, */ (req, res) => {
+    User.findById(req.user.id)
+      .select('name && email && dateOfRegistration')
+      .then(user => res.json(user))
+      .catch(error => console.log(error));
+  }
+);
 
 module.exports = router;

@@ -115,12 +115,6 @@ class RegistrationForm extends Component {
       repeatPassword,
     };
     this.props.registerUser(user);
-    // this.setState({
-    //   name: '',
-    //   email: '',
-    //   password: '',
-    //   repeatPassword: '',
-    // });
   };
 }
 
