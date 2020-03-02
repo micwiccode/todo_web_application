@@ -6,37 +6,43 @@ import {
   TOGGLE_TASK,
   FETCH_TASKS,
 } from '../actions/types';
+import { tokenConfig } from './logActions';
+import { getError } from './errorActions';
 
-export function getTasks(user) {
+export function getTasks(userId) {
   return dispatch => {
     dispatch(fetchTasks());
     axios
-      .get('/api/tasks', user)
-      .then(res => dispatch({ type: GET_TASKS, payload: res.data }));
+      .get(`/api/tasks/${userId}`)
+      .then(res => dispatch({ type: GET_TASKS, payload: res.data }))
+      .catch(error => getError(error.response.data, error.response.status));
   };
 }
 
 export function addTask(task) {
-  return dispatch => {
+  return (dispatch, getState) => {
     axios
-      .post('/api/tasks', task)
-      .then(res => dispatch({ type: ADD_TASK, payload: res.data }));
+      .post('/api/tasks', task, tokenConfig(getState))
+      .then(res => dispatch({ type: ADD_TASK, payload: res.data }))
+      .catch(error => getError(error.response.data, error.response.status));
   };
 }
 
 export function toggleTask(id) {
-  return dispatch => {
+  return (dispatch, getState) => {
     axios
-      .put(`/api/tasks/${id}`)
-      .then(res => dispatch({ type: TOGGLE_TASK, payload: id }));
+      .put(`/api/tasks/${id}`, tokenConfig(getState))
+      .then(res => dispatch({ type: TOGGLE_TASK, payload: id }))
+      .catch(error => getError(error.response.data, error.response.status));
   };
 }
 
 export function deleteTask(id) {
-  return dispatch => {
+  return (dispatch, getState) => {
     axios
-      .delete(`/api/tasks/${id}`)
-      .then(res => dispatch({ type: DELETE_TASK, payload: id }));
+      .delete(`/api/tasks/${id}`, tokenConfig(getState))
+      .then(res => dispatch({ type: DELETE_TASK, payload: id }))
+      .catch(error => getError(error.response.data, error.response.status));
   };
 }
 

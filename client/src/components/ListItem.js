@@ -14,30 +14,6 @@ export class ListItem extends Component {
     this.setTaskStatus = this.setTaskStatus.bind(this);
   }
 
-  getItemStateStyle() {
-    return this.props.task.isDone
-      ? {
-          backgroundColor: '#7465ff',
-          color: '#fff',
-          textDecoration: 'line-through',
-        }
-      : {
-          backgroundColor: '#fff',
-          color: '#000',
-          textDecoration: 'none',
-        };
-  }
-
-  deleteTask(event, id) {
-    event.stopPropagation();
-    this.props.deleteTask(id);
-  }
-
-  setTaskStatus(id) {
-    this.props.makeTaskDone(id);
-    this.setState({ fade: true });
-  }
-
   render() {
     const { _id, isDone, name } = this.props.task;
     const { fade } = this.state;
@@ -66,6 +42,32 @@ export class ListItem extends Component {
       </div>
     );
   }
+
+
+  getItemStateStyle() {
+    return this.props.task.isDone
+      ? {
+        backgroundColor: '#7465ff',
+        color: '#fff',
+        textDecoration: 'line-through',
+      }
+      : {
+        backgroundColor: '#fff',
+        color: '#000',
+        textDecoration: 'none',
+      };
+  }
+
+  deleteTask(event, id) {
+    event.stopPropagation();
+    this.props.deleteTask(id);
+  }
+
+  setTaskStatus(id) {
+    this.props.makeTaskDone(id);
+    this.setState({ fade: true });
+  }
+
 }
 
 ListItem.propTypes = {

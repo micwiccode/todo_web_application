@@ -3,7 +3,6 @@ const User = require('../../models/User');
 const bcrypt = require('bcrypt');
 const config = require('config');
 const jwt = require('jsonwebtoken');
-const auth = require('../../middleware/auth');
 
 const router = express.Router();
 
@@ -33,7 +32,7 @@ router.post('/', (req, res) => {
                     res.json({
                       token,
                       user: {
-                        id: user.id,
+                        _id: user.id,
                         name: user.name,
                         email: user.email,
                       },
@@ -43,22 +42,12 @@ router.post('/', (req, res) => {
               );
             }
           })
-          .catch(err => console.log(err));
+          // .catch(err => console.log(err));
       }
     });
   }
 });
 
-//Get user data
-//@route GET /login/user
-router.get(
-  '/user',
-  /*auth, */ (req, res) => {
-    User.findById(req.user.id)
-      .select('name && email && dateOfRegistration')
-      .then(user => res.json(user))
-      .catch(error => console.log(error));
-  }
-);
-
 module.exports = router;
+
+

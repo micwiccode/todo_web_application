@@ -6,14 +6,13 @@ import LogInForm from './components/LogInForm';
 import Footer from './components/Footer';
 import ViewNoLoggedIn from './components/ViewNoLoggedIn';
 import RegistrationForm from './components/RegistrationForm';
-import {connect, Provider} from 'react-redux';
+import {connect } from 'react-redux';
 import store from './store';
 import { loadUser } from './actions/logActions';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
 } from 'react-router-dom';
 
 class App extends Component {
@@ -23,7 +22,6 @@ class App extends Component {
 
   render() {
     return (
-
       <Router>
           <div className="App">
             <Header />

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
 import '../css/registrationForm.css';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -37,7 +38,10 @@ class RegistrationForm extends Component {
   }
 
   render() {
-    return (
+    const { isAuth } = this.props;
+    return isAuth ? (
+      <Redirect to="/" />
+    ) : (
       <form className="form" onSubmit={this.onSubmitUser}>
         <input
           onChange={this.onNameChange}

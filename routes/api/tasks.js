@@ -5,18 +5,17 @@ const auth = require('../../middleware/auth');
 const router = express.Router();
 
 //@route GET /tasks
-router.get('/', (req, res) => {
-  Task.find()
-    .where({userId: req.body.userId})
+router.get('/:userId', (req, res) => {
+  Task.find({ userId: req.params.userId })
     .sort({ date: -1 })
     .then(tasks => res.json(tasks));
 });
 
 //@route POST /tasks
-router.post('/', /*auth,*/ (req, res) => {
+router.post('/', auth, (req, res) => {
   const newTask = new Task({
     name: req.body.name,
-    userId: req.body.userId
+    userId: req.body.userId,
   });
   newTask
     .save()
@@ -25,7 +24,7 @@ router.post('/', /*auth,*/ (req, res) => {
 });
 
 //@route PUT /tasks/id
-router.put('/:id', /*auth,*/ (req, res) => {
+router.put('/:id', auth, (req, res) => {
   const isTaskDone = Task.findById(req.params.id)
     .then(task =>
       task.update({ isDone: !task.isDone }).then(() =>
@@ -42,7 +41,7 @@ router.put('/:id', /*auth,*/ (req, res) => {
 });
 
 //@route DELETE /tasks/id
-router.delete('/:id', /*auth,*/ (req, res) => {
+router.delete('/:id', auth, (req, res) => {
   Task.findById(req.params.id)
     .then(item =>
       item.remove().then(() =>

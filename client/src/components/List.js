@@ -20,10 +20,7 @@ class List extends Component {
   }
 
   componentDidMount() {
-    const user = {
-      userId: this.props.user._id
-    };
-    this.props.getTasks(user);
+    this.props.getTasks(this.props.user._id);
   }
 
   makeTaskDone(id) {

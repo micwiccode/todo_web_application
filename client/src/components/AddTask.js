@@ -10,21 +10,6 @@ export class AddTask extends Component {
     this.onSubmitTaskName = this.onSubmitTaskName.bind(this);
   }
 
-  onTaskNameChange(event) {
-    this.setState({ name: event.target.value });
-  }
-
-  onSubmitTaskName(event) {
-    event.preventDefault();
-    const {name} = this.state;
-    if (name !== '') {
-      this.props.addTask(name);
-      this.setState({ name: '', error: false });
-    } else {
-      this.setState({ error: true });
-    }
-  }
-
   render() {
     const error = this.state.error
       ? { visibility: 'visible' }
@@ -47,6 +32,21 @@ export class AddTask extends Component {
         </p>
       </div>
     );
+  }
+
+  onTaskNameChange(event) {
+    this.setState({ name: event.target.value });
+  }
+
+  onSubmitTaskName(event) {
+    event.preventDefault();
+    const {name} = this.state;
+    if (name !== '') {
+      this.props.addTask(name);
+      this.setState({ name: '', error: false });
+    } else {
+      this.setState({ error: true });
+    }
   }
 }
 

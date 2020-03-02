@@ -8,8 +8,7 @@ import {
   AUTH_FAIL,
   USER_LOADED,
   USER_LOADING,
-  GET_TASKS,
-  FETCH_TASKS,
+  DELETE_ERROR,
 } from '../actions/types';
 import { getError } from './errorActions';
 
@@ -17,7 +16,7 @@ export function loadUser() {
   return (dispatch, getState) => {
     dispatch(loadingUser());
     axios
-      .get('/api/login/user', tokenConfig(getState))
+      .get('/api/user', tokenConfig(getState))
       .then(res => dispatch({ type: USER_LOADED, payload: res.data }))
       .catch(err => {
         dispatch(getError(err.response.data, err.response.status, null));
@@ -39,6 +38,7 @@ export function logIn({ email, password }) {
       .then(res => {
         dispatch({ type: LOGIN_SUCCESS, payload: res.data });
       })
+      .then(() => dispatch({ type: DELETE_ERROR }))
       .catch(err => {
         dispatch(
           getError(err.response.data.msg, err.response.status, LOGIN_FAIL)
@@ -63,6 +63,7 @@ export function registerUser({ name, email, password, repeatPassword }) {
     axios
       .post('/api/register', body, config)
       .then(res => dispatch({ type: REGISTER_SUCCESS, payload: res.data }))
+      .then(() => dispatch({ type: DELETE_ERROR }))
       .catch(err => {
         dispatch(
           getError(err.response.data.msg, err.response.status, REGISTER_FAIL)

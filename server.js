@@ -2,8 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const config = require('config');
 const tasks = require('./routes/api/tasks');
-const users = require('./routes/api/register');
+const register = require('./routes/api/register');
 const login = require('./routes/api/login');
+const user = require('./routes/api/user');
 
 const app = express();
 
@@ -21,7 +22,8 @@ mongoose
 
 app.use(express.json());
 app.use('/api/tasks', tasks);
-app.use('/api/users', users);
+app.use('/api/register', register);
 app.use('/api/login', login);
+app.use('/api/user', user);
 
 app.listen(port, () => console.log(`App listening on port ${port}!`));

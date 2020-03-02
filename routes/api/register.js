@@ -25,7 +25,7 @@ router.post('/', (req, res) => {
       if (user) {
         res.status(400).json({ msg: 'User with that email already exists' });
       } else {
-        const saltRounds = 10;
+        const saltRounds = 5;
         bcrypt.hash(password, saltRounds, (err, hash) => {
           if (err) throw err;
           else {
@@ -42,13 +42,14 @@ router.post('/', (req, res) => {
                     id: user.id,
                   },
                   config.get('jwtKey'),
+                  { expiresIn: 1800 },
                   (err, token) => {
                     if (err) throw err;
                     else {
                       res.json({
                         token,
                         user: {
-                          id: user.id,
+                          _id: user.id,
                           name: user.name,
                           email: user.email,
                         },

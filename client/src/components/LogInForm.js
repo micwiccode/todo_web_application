@@ -19,7 +19,7 @@ class LogInForm extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { error, isAuth, history } = this.props;
+    const { error } = this.props;
     if (error !== prevProps.error) {
       if (error.id === 'LOGIN_FAIL') {
         this.setState({
