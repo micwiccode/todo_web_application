@@ -1,16 +1,40 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+# To do application
+Simple example of MERN (Mongo.db, Express.js, React.js, Node.js) todo app with extensions like register and login with authorization and tokens.
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
+
+### `npm run install-client`
+
+Install all necessary React and Redux dependencies
+
+### `npm run client`
+
+Run client side od application
+
+### `npm run server`
+
+Run server side od application
+
+### `npm run dev`
+
+Start whole app
+Run concurrently backend and frontend
+
+
+## `For React side of application`
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 
 ### `npm test`
 
