@@ -2,6 +2,11 @@
 # To do application
 Simple example of MERN (Mongo.db, Express.js, React.js, Node.js) todo app with extensions like register and login with authorization and tokens.
 
+![Screenshot1](readme_images/app_screen0.png)
+
+
+![Screenshot2](readme_images/app_screen1.jpg)
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -31,10 +36,8 @@ Run server side od application
 Start whole app
 Run concurrently backend and frontend
 
-
 ## `For React side of application`
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 
 ### `npm test`
 

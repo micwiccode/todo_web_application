@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfc77238-7134-40ae-838c-f53f3f8982a2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme_images/app_screen.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,18 +66,18 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2019.3.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Pliki programów\Dokumenty\CCamp\HTML-first steps\todo_web_application\client\src\img" />
-      <recent name="D:\Pliki programów\Dokumenty\CCamp\HTML-first steps\todo_web_application\client\src" />
-      <recent name="D:\Pliki programów\Dokumenty\CCamp\HTML-first steps\todo_web_application\client\src\reducers" />
-      <recent name="D:\Pliki programów\Dokumenty\CCamp\HTML-first steps\todo_web_application" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Pliki programów\Dokumenty\CCamp\HTML-first steps\todo_web_application\client\src\css" />
       <recent name="D:\Pliki programów\Dokumenty\CCamp\HTML-first steps\todo_web_application\client\src" />
       <recent name="D:\Pliki programów\Dokumenty\CCamp\HTML-first steps\todo_web_application\routes\api" />
       <recent name="D:\Pliki programów\Dokumenty\CCamp\HTML-first steps\todo_web_application\client\src\img" />
       <recent name="D:\Pliki programów\Dokumenty\CCamp\HTML-first steps\todo_web_application\client\src\actions" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Pliki programów\Dokumenty\CCamp\HTML-first steps\todo_web_application\client\src\img" />
+      <recent name="D:\Pliki programów\Dokumenty\CCamp\HTML-first steps\todo_web_application\client\src" />
+      <recent name="D:\Pliki programów\Dokumenty\CCamp\HTML-first steps\todo_web_application\client\src\reducers" />
+      <recent name="D:\Pliki programów\Dokumenty\CCamp\HTML-first steps\todo_web_application" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -122,7 +122,7 @@
       <workItem from="1583179911780" duration="4613000" />
       <workItem from="1583341295764" duration="23000" />
       <workItem from="1583625621355" duration="13000" />
-      <workItem from="1584046124493" duration="459000" />
+      <workItem from="1584046124493" duration="705000" />
     </task>
     <servers />
   </component>
